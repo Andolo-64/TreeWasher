@@ -3,7 +3,8 @@
 
 void ReformatJson()
 {
-    printf("Reformat \n");
+    char json[] = "{\"name\":\"John\", \"age\":30,\"city\":\"New York\", \"isEmployed\":true}\n";
+    printf("%s", json);
 
     return;
 }
