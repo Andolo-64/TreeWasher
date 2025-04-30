@@ -1,10 +1,13 @@
 #include "stdio.h"
 #include "formatJson.h"
+#include "ctype.h"
+int i;
 
-void ReformatJson()
+void ReformatJson(char** json[])
 {
-    char json[] = "{\"name\":\"John\", \"age\":30,\"city\":\"New York\", \"isEmployed\":true}\n";
-    printf("%s", json);
+  for (i = 0; i < sizeof(**json); i++) {
+    printf("%lu", sizeof(**json));
+  }
 
-    return;
+  return;
 }

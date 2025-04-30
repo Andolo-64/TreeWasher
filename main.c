@@ -4,10 +4,12 @@
 
 int main()
 {
+    char json[] = "{\"name\":\"John\", \"age\":30,\"city\":\"New York\", \"isEmployed\":true}\n";
+
     printf("Hello world \n");
 
     GetJson();
-    ReformatJson();
+    ReformatJson(&json);
 
     return(0);
 }
