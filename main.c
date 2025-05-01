@@ -1,12 +1,17 @@
 #include <stdio.h>
-#include "GetJson.h"
+#include "getJson.h"
 #include "formatJson.h"
 
 int main()
 {
-    printf("Hello world \n");
+    char jsonLocation[] = "Git/TreeWasher/test.json"; 
+    long length;
 
-    GetJson();
+    getJsonFileLength(jsonLocation, &length);
+    char jsonText[length + 1];
+
+    getJsonText(jsonLocation,jsonText, &length);
+    printf("%s", jsonText);
     ReformatJson();
 
     return(0);
