@@ -1,6 +1,6 @@
+#include <stdio.h>
 #include "formatJson.h"
 #include "getJson.h"
-#include <stdio.h>
 
 int main() 
 {
