@@ -5,15 +5,20 @@
 
 void ReformatJson(char *json) 
 {
-    int a = 0;
-    for (int i = 0; i < strlen(json); i++) 
+    // give formattedJson real value from pointer json
+    char formattedJson[strlen(json)];
+    strcpy(formattedJson, json);
+
+    printf("%s", formattedJson);
+    
+    for (int i = 0; i < strlen(formattedJson); i++) 
     {
-        if (json[i] == ':') 
+        // char string filter
+        if (formattedJson[i] == ',') 
         {
-            a++;
-            printf("%d\n", a);
         }
-        if (isalpha(json[i])) 
+        // letter filter
+        if (isalpha(formattedJson[i])) 
         {
         }
     }
