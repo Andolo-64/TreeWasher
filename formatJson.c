@@ -3,26 +3,45 @@
 #include "ctype.h"
 #include "string.h"
 
-void ReformatJson(char *json) 
+void spaceAdder(int depth, int index, char *formattedJson)
 {
-    // give formattedJson real value from pointer json
-    char formattedJson[strlen(json)];
-    strcpy(formattedJson, json);
+    // Shift characters to the right to make room for the spaces
+    for (int i = strlen(formattedJson); i >= index; i--) {
+        formattedJson[i + depth] = formattedJson[i];
+    }
 
-    printf("%s", formattedJson);
+    // Insert spaces at the specified index
+    for (int i = 0; i < depth; i++) {
+        formattedJson[index + i] = ' ';
+    }
+}
+
+void reformatJson(char *jsonText) 
+{
+    int depth = 0;
+    char formattedJson[strlen(jsonText)];
+    formattedJson[0] = '\0'; // empty string char
     
-    for (int i = 0; i < strlen(formattedJson); i++) 
+    for (int i = 0; i < strlen(jsonText); i++) 
     {
         // char string filter
-        if (formattedJson[i] == ',') 
+        if (jsonText[i] == '{') 
         {
+            depth++;
         }
-        // letter filter
-        if (isalpha(formattedJson[i])) 
+        else if (jsonText[i] == '}')
         {
+            depth--;
+        }
+        
+        // letter filter
+        if (isalpha(jsonText[i])) 
+        {
+            formattedJson[i] = jsonText[i];
+            spaceAdder(depth, i, formattedJson);
         }
     }
-    printf("\n");
+    printf("%s\n", formattedJson);
 
     return;
 }

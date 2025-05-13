@@ -11,8 +11,7 @@ int main()
     char jsonText[length + 1];
 
     getJsonText(jsonLocation, jsonText, &length);
-    printf("%s", jsonText);
-    ReformatJson(jsonText);
+    reformatJson(jsonText);
 
     return (0);
 }
