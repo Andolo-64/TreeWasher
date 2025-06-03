@@ -6,60 +6,54 @@
 
 static int size;
 
-void spaceAdder(char *jsonText, int depth)
+/*void spaceAdder(char *jsonText, int depth)
 {
-    size = sizeof(jsonText) + depth;
+    // update size
+    size = sizeof(jsonText + depth + 1);
+
+    printf("%s \n before shift: \n", jsonText);
 
     // shift all elements of jsonText to the right
-    for (size_t i = size; i > 0; i--)
+    for (int i = strlen(jsonText); i >= 0; i--)
     {
-        jsonText[i + depth] = jsonText[i];
+        jsonText[i] = jsonText[i - 1];
     }
+    jsonText[0] = ' ';
 
-    // add nummber of spaces
-    for (size_t i = 0; i < depth; i++)
-    {
-        jsonText[i] = ' ';
-    }
+    printf("%s \n after shift: \n", jsonText);
 
-    jsonText[size + depth] = '\0';
-}
+
+    // add nummber of spaces == depth jsonText[i] = ' ';
+}*/
 
 void reformatJson(char *jsonText)
 {
-    size = strlen(jsonText);
-    int depth = 0;
-    char formattedJson[size];
-    formattedJson[0] = '\0'; // empty char
+    char formattedJson[strlen(jsonText) + 1];
+    size_t j = 0;
 
-    for (int i = 0; i < size; i++)
+    printf("Original JSON: %s\n", jsonText);
+
+    for (size_t i = 0; i < strlen(jsonText); i++)
     {
-        // Example usage
-        char jsonText[100] = "{\"name\": \"John\"}";
-
-        printf("Before adding spaces: %s\n", jsonText);
-        spaceAdder(jsonText, 4); // Adds 4 spaces at the start
-
-        printf("After adding spaces: %s\n", jsonText);
-        // char string filter
-        /* if (jsonText[i] == '{')
-        {
-            depth++;
-        }
-        else if (jsonText[i] == '}')
-        {
-            depth--;
-        }
-
-        // letter filter
-        if (isalpha(jsonText[i]))
-        {
-            spaceAdder(jsonText, depth);
+        if (jsonText[i] == ' ') {
+            if (j > 0 && formattedJson[j - 1] != ' ') {
+                formattedJson[j++] = ' ';
+            }
+        } else if ((jsonText[i] >= 'a' && jsonText[i] <= 'z') ||
+                   (jsonText[i] >= 'A' && jsonText[i] <= 'Z') ||
+                   (jsonText[i] >= '0' && jsonText[i] <= '9')) {
+            formattedJson[j++] = jsonText[i];
         }
     }
-    printf("%s\n", formattedJson);
-    */
 
-        return;
-    }
+    formattedJson[j] = '\0';
+
+    printf("Formatted JSON: %s\n", formattedJson);
+
+    // update size
+    // set depth 0
+    // make formattedJson[size];
+    // filter for { == depth++, } == depth--
+    // isalpha
+    // spaceadder and print
 }
