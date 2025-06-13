@@ -11,13 +11,11 @@ void ReformatJson(char *json)
         if (json[i] == ':') 
         {
             a++;
-            printf("%d\n", a);
         }
         if (isalpha(json[i])) 
         {
         }
     }
-    printf("\n");
 
     return;
 }
