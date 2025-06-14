@@ -1,3 +1,3 @@
 #pragma ones
 
-void ReformatJson(char* json);
+void reformatJson(char* json);
