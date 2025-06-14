@@ -32,4 +32,3 @@ void reformatJson(char *jsonText)
 
     printf("Modified JSON: %s\n", formattedJson);
 }
-
